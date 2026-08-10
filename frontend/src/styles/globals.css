@@ -1,0 +1,261 @@
+/* ===================================================================
+   DESIGN SYSTEM — MediCare HMS
+   Palette: deep teal (trust/clinical calm), warm white, soft coral
+   (alerts/urgency), sage (health/success), slate (text)
+   Type: Fraunces (display, headings only) + Inter (body/data)
+   =================================================================== */
+
+:root {
+  /* Color */
+  --color-teal-900: #0a3636;
+  --color-teal-700: #0f4c4c;
+  --color-teal-500: #1a6b6b;
+  --color-teal-100: #e3efee;
+  --color-coral: #e8745a;
+  --color-coral-light: #fbe8e3;
+  --color-sage: #7fa876;
+  --color-sage-light: #e7f0e4;
+  --color-amber: #d99a3d;
+  --color-amber-light: #faf0dd;
+  --color-cream: #faf8f5;
+  --color-cream-dim: #f1ede6;
+  --color-slate-900: #20262b;
+  --color-slate-600: #5c6670;
+  --color-slate-300: #c7cdd1;
+  --color-white: #ffffff;
+  --color-border: #e3ddd3;
+
+  /* Type */
+  --font-display: "Fraunces", "Georgia", serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Spacing scale */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+
+  /* Radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+
+  /* Shadow */
+  --shadow-sm: 0 1px 2px rgba(15, 76, 76, 0.06);
+  --shadow-md: 0 4px 16px rgba(15, 76, 76, 0.08);
+  --shadow-lg: 0 12px 32px rgba(15, 76, 76, 0.12);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--color-cream);
+  color: var(--color-slate-900);
+  line-height: 1.5;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--color-teal-900);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+input, select, textarea {
+  font-family: inherit;
+  font-size: 14px;
+}
+
+/* Visible keyboard focus everywhere — accessibility floor */
+:focus-visible {
+  outline: 2px solid var(--color-teal-500);
+  outline-offset: 2px;
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-slate-300);
+  border-radius: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* ---------- Reusable utility classes ---------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: 10px 20px;
+  border-radius: var(--radius-md);
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+  white-space: nowrap;
+}
+.btn:active { transform: scale(0.98); }
+
+.btn-primary {
+  background: var(--color-teal-700);
+  color: var(--color-white);
+  box-shadow: var(--shadow-sm);
+}
+.btn-primary:hover { background: var(--color-teal-900); }
+
+.btn-secondary {
+  background: var(--color-white);
+  color: var(--color-teal-700);
+  border: 1.5px solid var(--color-teal-700);
+}
+.btn-secondary:hover { background: var(--color-teal-100); }
+
+.btn-danger {
+  background: var(--color-coral-light);
+  color: var(--color-coral);
+}
+.btn-danger:hover { background: #f6d8d0; }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--color-slate-600);
+}
+.btn-ghost:hover { background: var(--color-cream-dim); }
+
+.btn-sm { padding: 6px 14px; font-size: 13px; }
+.btn-block { width: 100%; }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.card {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  box-shadow: var(--shadow-sm);
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+}
+
+.input-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-slate-900);
+}
+
+.input-field {
+  padding: 11px 14px;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  background: var(--color-white);
+  transition: border-color 0.12s ease;
+  width: 100%;
+}
+.input-field:focus {
+  border-color: var(--color-teal-500);
+  outline: none;
+}
+.input-field.error {
+  border-color: var(--color-coral);
+}
+
+.error-text {
+  font-size: 12.5px;
+  color: var(--color-coral);
+  font-weight: 500;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 11px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.badge-success { background: var(--color-sage-light); color: var(--color-sage); }
+.badge-warning { background: var(--color-amber-light); color: var(--color-amber); }
+.badge-danger { background: var(--color-coral-light); color: var(--color-coral); }
+.badge-neutral { background: var(--color-teal-100); color: var(--color-teal-700); }
+
+/* Signature element: vitals strip — a thin pulse-line rhythm used in headers */
+.vitals-strip {
+  height: 3px;
+  width: 100%;
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--color-coral) 0px,
+    var(--color-coral) 2px,
+    transparent 2px,
+    transparent 40px
+  );
+  opacity: 0.55;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.spin { animation: spin 0.9s linear infinite; }
+
+/* ---------- Notification bell ---------- */
+.notif-dot {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  border-radius: 999px;
+  background: var(--color-coral);
+  color: var(--color-white);
+  font-size: 10px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--color-white);
+}
