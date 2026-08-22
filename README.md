@@ -9,6 +9,10 @@ than a CRUD skeleton.
 log in as an admin, doctor, receptionist, or patient to see the whole system
 populated with realistic Sri Lankan hospital data.
 
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-medicare--hms-16A34A?style=for-the-badge&logo=vercel&logoColor=white&labelColor=0F0C29)](https://medicare-nilusha.vercel.app)
+
+Frontend on Vercel, backend (Express + MongoDB) on Railway.
+
 ---
 
 ## What's in this version
